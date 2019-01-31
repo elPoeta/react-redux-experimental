@@ -4,13 +4,13 @@ import "./styles.css";
 import { Provider } from "react-redux";
 import store from "./store/Store";
 import Characters from "./components/Characters";
-import Form from "./components/Form";
+import FormContainer from "./components/FormContainer";
 const App = () => {
   return (
     <div className="App">
       <h1>Hello CodeSandbox</h1>
       <h2>Start with my react redux example</h2>
-      <Form />
+      <FormContainer />
       <Characters />
     </div>
   );
