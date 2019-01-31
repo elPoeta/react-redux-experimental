@@ -7,28 +7,51 @@ import Form from "./Form";
 class FormConatiner extends React.Component {
   state = {
     name: "",
-    gender: ""
+    gender: "",
+    appearsOn: {
+      isOnMovies: false,
+      isOnBooks: false,
+      isOnTheater: false
+    }
   };
 
   handlerOnChange = e => {
-    const { name, value } = e.target;
-    this.setState({
-      [name]: value
-    });
+    const { name, value, type, checked } = e.target;
+    type === "checkbox"
+      ? this.setState(prevState => {
+          return {
+            appearsOn: {
+              ...prevState.appearsOn,
+              [name]: checked
+            }
+          };
+        })
+      : this.setState({
+          [name]: value
+        });
   };
 
   handlerOnSubmit = e => {
     e.preventDefault();
-    const { name, gender } = this.state;
+    const { name, gender, appearsOn } = this.state;
     const id = uuidv4();
-    this.props.addCharacter({ name, gender, id });
-    this.setState({ name: "", gender: "" });
+    this.props.addCharacter({ name, gender, appearsOn, id });
+    this.setState({
+      name: "",
+      gender: "",
+      appearsOn: {
+        isOnMovies: false,
+        isOnBooks: false,
+        isOnTheater: false
+      }
+    });
   };
   render() {
     return (
       <Form
         name={this.state.name}
         gender={this.state.gender}
+        appearsOn={this.state.appearsOn}
         handlerOnChange={this.handlerOnChange}
         handlerOnSubmit={this.handlerOnSubmit}
       />

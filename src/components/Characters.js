@@ -11,7 +11,10 @@ class Character extends React.Component {
       <li key={c.id}>
         Name: {c.name}
         &ensp; Gender: {c.gender}
-        &ensp;
+        &ensp; Appearson:&ensp;
+        {c.appearsOn.isOnMovies ? "Movies " : null}
+        {c.appearsOn.isOnBooks ? "Books " : null}
+        {c.appearsOn.isOnTheater ? "Theater " : null}
         <button
           onClick={() => {
             this.handlerOnClick(c.id);

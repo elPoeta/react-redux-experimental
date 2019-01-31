@@ -2,6 +2,7 @@ import React from "react";
 const Form = props => (
   <form onSubmit={props.handlerOnSubmit}>
     <p>{props.name}</p>
+    Character:{" "}
     <input
       type="text"
       name="name"
@@ -29,6 +30,36 @@ const Form = props => (
       onChange={props.handlerOnChange}
       value={"female"}
     />
+    <br />
+    Appearson
+    <br />
+    <label>
+      <input
+        type="checkbox"
+        name="isOnMovies"
+        onChange={props.handlerOnChange}
+        checked={props.appearsOn.isOnMovies}
+      />
+      Movies &ensp;
+    </label>
+    <label>
+      <input
+        type="checkbox"
+        name="isOnBooks"
+        onChange={props.handlerOnChange}
+        checked={props.appearsOn.isOnBooks}
+      />
+      Books &ensp;
+    </label>
+    <label>
+      <input
+        type="checkbox"
+        name="isOnTheater"
+        onChange={props.handlerOnChange}
+        checked={props.appearsOn.isOnTheater}
+      />
+      Theater
+    </label>
     <br />
     <button>Add</button>
   </form>
