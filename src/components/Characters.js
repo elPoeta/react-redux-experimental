@@ -9,7 +9,9 @@ class Character extends React.Component {
     const { viewCharacters } = this.props;
     const v = viewCharacters.characters.map(c => (
       <li key={c.id}>
-        {c.name}
+        Name: {c.name}
+        &ensp; Gender: {c.gender}
+        &ensp;
         <button
           onClick={() => {
             this.handlerOnClick(c.id);

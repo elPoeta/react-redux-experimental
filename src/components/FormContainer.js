@@ -6,26 +6,29 @@ import Form from "./Form";
 
 class FormConatiner extends React.Component {
   state = {
-    name: ""
+    name: "",
+    gender: ""
   };
 
   handlerOnChange = e => {
+    const { name, value } = e.target;
     this.setState({
-      name: e.target.value
+      [name]: value
     });
   };
 
   handlerOnSubmit = e => {
     e.preventDefault();
-    const { name } = this.state;
+    const { name, gender } = this.state;
     const id = uuidv4();
-    this.props.addCharacter({ name, id });
-    this.setState({ name: "" });
+    this.props.addCharacter({ name, gender, id });
+    this.setState({ name: "", gender: "" });
   };
   render() {
     return (
       <Form
         name={this.state.name}
+        gender={this.state.gender}
         handlerOnChange={this.handlerOnChange}
         handlerOnSubmit={this.handlerOnSubmit}
       />
